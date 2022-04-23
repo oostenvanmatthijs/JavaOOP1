@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static String vraag(Scanner input, String onderwerp, int huidigeStudent){
+    private static String vraag(Scanner input, String onderwerp, int huidigeStudent) {
         System.out.println(String.format("Wat is %s van student %d?", onderwerp, huidigeStudent));
         return input.nextLine();
     }
@@ -16,13 +16,13 @@ public class Main {
         return LocalDate.of(Integer.parseInt(partsDate[2]), Integer.parseInt(partsDate[1]), Integer.parseInt(partsDate[0]));
     }
 
-    private static String vraagPostcode(Scanner input, int huidigeStudent){
+    private static String vraagPostcode(Scanner input, int huidigeStudent) {
         boolean geldigePostcode = false;
         String postcode = null;
-        while(!geldigePostcode){
+        while (!geldigePostcode) {
             postcode = vraag(input, "de postcode", huidigeStudent);
             geldigePostcode = Adres.checkPostcode(postcode);
-            if(!geldigePostcode){
+            if (!geldigePostcode) {
                 System.out.println("Ongeldige postcode, probeer het opnieuw (bijvoorbeeld 1434AC");
             }
         }
@@ -30,7 +30,7 @@ public class Main {
         return postcode;
     }
 
-    private static Student vraagStudent(Scanner input, int studentnr, int huidigeStudent){
+    private static Student vraagStudent(Scanner input, int studentnr, int huidigeStudent) {
         String voornaam = vraag(input, "de voornaam", huidigeStudent);
         String achternaam = vraag(input, "de achternaam", huidigeStudent);
         LocalDate geboortedatum = vraagGeboortedatum(input, huidigeStudent);
@@ -44,7 +44,7 @@ public class Main {
         return new Student(studentnr, voornaam, achternaam, geboortedatum, adres);
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
         System.out.println("Wat is de naam van de klas?");
@@ -52,9 +52,9 @@ public class Main {
 
         Klas klas = new Klas(naam);
 
-        while(true){
+        while (true) {
             int huidigeStudent = klas.getAantalStudenten() + 1;
-            if(huidigeStudent > Klas.MAX_AANTAL_STUDENTEN) {
+            if (huidigeStudent > Klas.MAX_AANTAL_STUDENTEN) {
                 break;
             }
 
@@ -69,7 +69,4 @@ public class Main {
 
         System.out.println(klas.toString());
     }
-
-
-
 }
