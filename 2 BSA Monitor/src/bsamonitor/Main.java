@@ -3,6 +3,8 @@ package bsamonitor;
 public class Main {
 
     public static void main(String[] args) {
+        System.out.println("Matthijs van Oosten");
+
         VakkenPakket pakket = new VakkenPakket();
         BSAMonitor monitor = new BSAMonitor(pakket);
 
