@@ -10,6 +10,15 @@ public class Student {
     private LocalDate geboortedatum;
     private Adres adres;
 
+    /**
+     *
+     * @param studentnr SIS student-nummer
+     * @param voornaam
+     * @param achternaam
+     * @param geboortedatum
+     * @param adres
+     */
+
     public Student(int studentnr, String voornaam, String achternaam, LocalDate geboortedatum, Adres adres) {
         this.studentnr = studentnr;
         this.voornaam = voornaam;
